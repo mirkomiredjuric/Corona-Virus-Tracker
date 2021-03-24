@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{css/home.css}" href="css/home.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+    <h1>Corona virus tracker</h1>
+    <p>List of countries</p>
+    <table border="1"  id="table">
+        <tr>
+            <th>Name</th>
+            <th>WHO Region</th>
+            <th>Cases - cumulative total</th>
+            <th>Cases - cumulative total per 100000 population</th>
+            <th>Cases - newly reported in last 7 days</th>
+            <th>Cases - newly reported in last 7 days per 100000 population</th>
+            <th>Cases - newly reported in last 24 hours</th>
+            <th>Deaths - cumulative total</th>
+            <th>Deaths - cumulative total per 100000 population</th>
+            <th>Deaths - newly reported in last 7 days</th>
+            <th>Deaths - newly reported in last 7 days per 100000 population</th>
+            <th>Deaths - newly reported in last 24 hours</th>
+            <th>Transmission Classification</th>
+        </tr>
+        <tr th:each="countries : ${countries}">
+            <td th:text="${countries.name}"></td>
+            <td th:text="${countries.WHORegion}"></td>
+            <td th:text="${countries.totalCases}">0</td>
+            <td th:text="${countries.totalCasesPer100k}">0</td>
+            <td th:text="${countries.totalCasesInLast7Days}"></td>
+            <td th:text="${countries.totalCasesInLast7DaysPer100k}"></td>
+            <td th:text="${countries.totalCasesInLast24h}">0</td>
+            <td th:text="${countries.totalDeaths}">0</td>
+            <td th:text="${countries.totalDeathsPer100k}"></td>
+            <td th:text="${countries.totalDeathsInLast7Days}"></td>
+            <td th:text="${countries.totalDeathsInLast7DaysPer100k}">0</td>
+            <td th:text="${countries.totalDeathsInLast24h}">0</td>
+            <td th:text="${countries.TransmissionClassification}">0</td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
